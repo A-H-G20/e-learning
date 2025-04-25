@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>footer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="../UserHtml/Css/footer.css" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+    </style>
+</head>
+
+<body>
+<footer class="site-footer">
+    <div class="footer-container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4 class="footer-heading">About Us</h4>
+                <p class="footer-text">Discover premium courses with seamless studying experience. Quality guaranteed.</p>
+                <div class="social-links">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h4 class="footer-heading">Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="#"> Deaf Courses</a></li>
+                    <li><a href="#"> Blind Courses</a></li>
+                    <li><a href="#"> Normal Courses</a></li>
+               
+                </ul>
+            </div>
+
+  
+
+        </div>
+
+        <div class="footer-bottom">
+            <p class="copyright">&copy; 2025 E-Learn. All rights reserved.</p>
+
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top"><i class="fas fa-chevron-up"></i></a>
+</footer>
+</body>
+<script>
+    const backToTop = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTop.classList.add('show');
+        } else {
+            backToTop.classList.remove('show');
+        }
+    });
+  
+    backToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+  
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            if (this.classList.contains('back-to-top')) return;
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });</script>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../UserHtml/Css/courseContentNorm.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+        </style>
+</head>
+<body>
+    <div class="course-container">
+        <div class="content-section">
+            <div class="content-header">
+                <h1>Principles of Visual Communication</h1>
+                <div class="content-meta">
+                    <span><i class="far fa-clock"></i> 15 min read</span>
+                    <span><i class="far fa-bookmark"></i> Lesson 3 of 12</span>
+                </div>
+            </div>
+
+            <div class="content-body">
+                <h2>Introduction to Visual Hierarchy</h2>
+                
+                <p>Visual hierarchy is the principle of arranging elements to show their order of importance. Designers structure visual characteristics so viewers can easily understand information.</p>
+                
+                <img src="" alt="Visual Hierarchy Example">
+                
+                <h2>Key Principles</h2>
+                
+                <ul>
+                    <li><strong>Size:</strong> Larger elements attract more attention</li>
+                    <li><strong>Color:</strong> Bright colors stand out against muted backgrounds</li>
+                    <li><strong>Contrast:</strong> Dramatically different elements draw the eye</li>
+                    <li><strong>Alignment:</strong> Creates order and organization</li>
+                    <li><strong>Proximity:</strong> Groups related items together</li>
+                </ul>
+                
+                <blockquote>
+                    "Good design is obvious. Great design is transparent." — Joe Sparano
+                </blockquote>
+                
+                <h2>Practical Applications</h2>
+                
+                <p>When designing interfaces, establish a clear focal point. Use size, color, and positioning to guide users through your content in a logical sequence.</p>
+                
+                <p>For example, in a pricing table, you might make the recommended plan slightly larger and use an accent color for the "Sign Up" button to draw attention to the desired action.</p>
+            </div>
+
+            <div class="content-navigation">
+                <a href="#" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Previous Lesson
+                </a>
+                <a href="#" class="nav-btn">
+                    Next Lesson
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="course-sidebar">
+            <div class="sidebar-header">
+                <h3>Course Content</h3>
+                <span class="progress-text">25% Complete</span>
+            </div>
+
+            <div class="course-modules">
+                <div class="module-card active">
+                    <div class="module-header">
+                        <h4>Module 1: Foundations</h4>
+                        <span>3/12 Lessons</span>
+                    </div>
+                    <div class="lesson-list" style="max-height: 500px;">
+                        <div class="lesson-item completed">
+                            <div class="lesson-thumbnail">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Introduction to Design</span>
+                            <span class="lesson-duration">8 min</span>
+                        </div>
+                        <div class="lesson-item completed">
+                            <div class="lesson-thumbnail">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span>Color Theory</span>
+                            <span class="lesson-duration">12 min</span>
+                        </div>
+                        <div class="lesson-item active">
+                            <div class="lesson-thumbnail">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <span>Visual Hierarchy</span>
+                            <span class="lesson-duration">15 min</span>
+                        </div>
+                        <div class="lesson-item">
+                            <div class="lesson-thumbnail">
+                                <i class="far fa-file-alt"></i>
+                            </div>
+                            <span>Typography Basics</span>
+                            <span class="lesson-duration">10 min</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.module-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const module = header.parentElement;
+                const lessonList = module.querySelector('.lesson-list');
+                lessonList.style.maxHeight = lessonList.style.maxHeight ? null : `${lessonList.scrollHeight}px`;
+                module.classList.toggle('active');
+            });
+        });
+
+        function markComplete() {
+            const activeLesson = document.querySelector('.lesson-item.active');
+            if (activeLesson) {
+                activeLesson.classList.remove('active');
+                activeLesson.classList.add('completed');
+                activeLesson.querySelector('.lesson-thumbnail').innerHTML = '<i class="fas fa-check"></i>';
+                
+                const progressText = document.querySelector('.progress-text');
+                const completed = document.querySelectorAll('.lesson-item.completed').length;
+                const total = document.querySelectorAll('.lesson-item').length;
+                const progress = Math.round((completed / total) * 100);
+                progressText.textContent = `${progress}% Complete`;
+            }
+        }
+
+        document.querySelector('.content-section').addEventListener('dblclick', markComplete);
+    </script>
+</body>
+</html>
