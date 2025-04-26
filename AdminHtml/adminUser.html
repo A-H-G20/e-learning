@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Manage Students - E-Learning Admin</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="../AdminHtml/Css/admin.css">
+        <style>
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+    </style>
+    </head>
+    <body>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="dashboard-container">
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo">E-Learn</div>
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminDash.html" class="nav-link">
+                            <i class="fas fa-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminCourse.html"
+                            class="nav-link">
+                            <i class="fas fa-book-open"></i>
+                            Courses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminUser.html"
+                            class="nav-link active">
+                            <i class="fas fa-users"></i>
+                            Students
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminIstruct.html"
+                            class="nav-link">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Instructors
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminSettings.html"
+                            class="nav-link">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <main class="main-content">
+                <div class="student-management">
+                    <div class="management-header">
+                        <h2>Student Management</h2>
+                        <div class="search-filter">
+                            <input type="text" class="search-input"
+                                placeholder="Search students...">
+                            <select class="filter-select">
+                                <option>All Students</option>
+                                <option>Deaf/HoH</option>
+                                <option>Blind/Low Vision</option>
+                            </select>
+                            <button class="add-student-btn"
+                                onclick="openModal()">
+                                <i class="fas fa-plus"></i> Add Student
+                            </button>
+                        </div>
+                    </div>
+
+                    <table class="student-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Accessibility</th>
+                                <th>Email</th>
+                                <th>Enrolled Courses</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Name">Maximilian Meadows</td>
+                                <td data-label="Accessibility">
+                                    <span class="accessibility-tag deaf-tag">
+                                        <i class="fas fa-deaf"></i> Deaf
+                                    </span>
+                                </td>
+                                <td data-label="Email">Max@example.com</td>
+                                <td data-label="Courses">3 Courses</td>
+                                <td data-label="Actions">
+                                    <div class="student-actions">
+                                        <button class="action-btn view-btn"
+                                            onclick="openCoursesModal()">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn edit-btn">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="action-btn delete-btn">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-overlay" id="coursesModal">
+                    <div class="modal-content courses-modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-chalkboard-teacher"></i>Courses
+                                Enrolled by Dani Volkov</h3>
+                            <button class="close-btn"
+                                onclick="closeCoursesModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="course-list">
+                            <div class="course-list-item">
+                                <div>
+                                    <h4>Advanced UI Design Principles</h4>
+                                    <div class="course-meta">
+                                        <span>Created: 2025-04-26</span>
+
+                                    </div>
+                                </div>
+                                <div class="course-status">
+                                    <span
+                                        class="enrollment-badge active">Active</span>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-overlay" id="modalOverlay">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-user-graduate"></i>Add New
+                                Student</h3>
+                            <button class="close-btn" onclick="closeModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <form id="studentForm">
+
+                            <div class="form-row">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" class="form-input"
+                                    placeholder="John Doe" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="form-label">Email Address</label>
+                                <input type="email" class="form-input"
+                                    placeholder="john@example.com" required>
+                            </div>
+
+                            <div class="form-row">
+                                <label class="form-label">Accessibility
+                                    Needs</label>
+                                <div class="accessibility-options">
+                                    <div class="accessibility-option"
+                                        onclick="toggleAccessibility(this)">
+                                        <i class="fas fa-deaf"></i>
+                                        Deaf/HoH
+                                    </div>
+                                    <div class="accessibility-option"
+                                        onclick="toggleAccessibility(this)">
+                                        <i class="fas fa-blind"></i>
+                                        Blind/Low Vision
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="add-student-btn">
+                                <i class="fas fa-save"></i> Save Student
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </main>
+
+            <script>
+                const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+                const dashboardContainer = document.querySelector('.dashboard-container');
+        
+                mobileMenuToggle.addEventListener('click', () => {
+                    dashboardContainer.classList.toggle('sidebar-active');
+                });
+        
+                document.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 1024 && 
+                        !e.target.closest('.sidebar') && 
+                        !e.target.closest('.mobile-menu-toggle')) {
+                        dashboardContainer.classList.remove('sidebar-active');
+                    }
+                });
+        
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        document.querySelector('.nav-link.active').classList.remove('active');
+                        this.classList.add('active');
+                    });
+                });
+                function openCoursesModal() {
+                    document.getElementById('coursesModal').style.display = 'flex';
+                    setTimeout(() => {
+                        document.querySelector('#coursesModal .modal-content').classList.add('active');
+                    }, 10);
+                }
+        
+                function closeCoursesModal() {
+                    document.querySelector('#coursesModal .modal-content').classList.remove('active');
+                    setTimeout(() => {
+                        document.getElementById('coursesModal').style.display = 'none';
+                    }, 300);
+                }
+        
+                document.getElementById('coursesModal').addEventListener('click', function(e) {
+                    if (e.target === this) closeCoursesModal();
+                });
+        
+                const statusBadges = document.querySelectorAll('.status-badge');
+                statusBadges.forEach(badge => {
+                    if (badge.classList.contains('active')) {
+                        badge.style.background = 'rgba(16, 185, 129, 0.1)';
+                        badge.style.color = '#10b981';
+                    } else {
+                        badge.style.background = 'rgba(239, 68, 68, 0.1)';
+                        badge.style.color = '#ef4444';
+                    }
+                });
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modalOverlay').style.display = 'none';
+        }
+
+        document.getElementById('modalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeModal();
+        });
+
+        document.querySelectorAll('.delete-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (confirm('Are you sure you want to delete this student?')) {
+                }
+            });
+        });
+        function toggleAccessibility(element) {
+            element.classList.toggle('selected');
+        }
+    
+        document.getElementById('avatarInput').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                const preview = document.getElementById('avatarPreview');
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                }
+                reader.readAsDataURL(file);
+            }
+        });
+    
+        function openModal() {
+            document.getElementById('modalOverlay').style.display = 'flex';
+            setTimeout(() => {
+                document.querySelector('.modal-content').classList.add('active');
+            }, 10);
+        }
+    
+        function closeModal() {
+            document.querySelector('.modal-content').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('modalOverlay').style.display = 'none';
+            }, 300);
+        }
+    </script>
+ </body>
+</html>

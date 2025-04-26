@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Instructor Management - EduAdmin</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="../AdminHtml/Css/admin.css">
+        <style>
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+    </style>
+    </head>
+    <body>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="dashboard-container">
+            <nav class="sidebar">
+                <div class="sidebar-header">
+                    <div class="logo">E-Learn</div>
+                </div>
+
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminDash.html" class="nav-link ">
+                            <i class="fas fa-home"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminCourse.html"
+                            class="nav-link active">
+                            <i class="fas fa-book-open"></i>
+                            Courses
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminUser.html" class="nav-link">
+                            <i class="fas fa-users"></i>
+                            Students
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminIstruct.html"
+                            class="nav-link">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            Instructors
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../AdminHtml/adminSettings.html"
+                            class="nav-link">
+                            <i class="fas fa-cog"></i>
+                            Settings
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <main class="main-content">
+                <div class="student-management">
+                    <div class="management-header">
+                        <h2>Courses Management</h2>
+                        <div class="search-filter">
+                            <input type="text" class="search-input"
+                                placeholder="Search instructors...">
+                            <select class="filter-select">
+                                <option>All Courses</option>
+                                <option>Approved</option>
+                                <option>Pending</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <table class="student-table instructor-table">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Instructor</th>
+                                <th>Satuts</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="Course Name">
+                                    UI/UX Design Fundamentals
+                                </td>
+                                <td data-label="Expertise">
+                                    Abir Merhi
+                                </td>
+                                <td data-label="Status">
+                                    <span class="expertise-tag">
+                                        Approved
+                                    </span>
+                                </td>
+                                <td data-label="Actions">
+                                    <div class="student-actions">
+                                        <button class="action-btn view-btn"
+                                            onclick="openCoursesModal()">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn delete-btn">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-overlay" id="coursesModal">
+                    <div class="modal-content courses-modal">
+                        <div class="modal-header">
+                            <h3><i class="fas fa-book-open"></i> Course
+                                Management</h3>
+                            <button class="close-btn" onclick="closeModal()">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+
+                        <div class="modal-body">
+                            <div class="course-overview">
+                                <div class="course-meta">
+                                    <span class="status-badge pending">Pending
+                                        Review</span>
+
+                                </div>
+                                <h2 class="course-title">Advanced Visual
+                                    Communication</h2>
+                            </div>
+
+                            <div class="tab-content active" id="detailsContent">
+                                <div class="content-grid">
+                                    <div class="content-card">
+                                        <h4><i class="fas fa-align-left"></i>
+                                            Description</h4>
+                                        <p class="course-description">Master
+                                            visual communication techniques for
+                                            inclusive learning
+                                            environments...</p>
+                                    </div>
+
+                                    <div class="content-card">
+                                        <h4><i class="fas fa-file-alt"></i>
+                                            Content Overview</h4>
+                                        <div class="content-types">
+                                            <span class="content-type video"><i
+                                                    class="fas fa-video"></i> 12
+                                                Videos</span>
+                                            <span class="content-type audio"><i
+                                                    class="fas fa-headphones"></i>
+                                                8 Audios</span>
+                                            <span class="content-type book"><i
+                                                    class="fas fa-book"></i> 5
+                                                eBooks</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-content" id="curriculumContent">
+                                <div class="module-list">
+                                    <div class="module-item">
+                                        <div class="module-header"
+                                            onclick="toggleModule(this)">
+                                            <i class="fas fa-chevron-down"></i>
+                                            <h4>Module 1: Introduction to Visual
+                                                Communication</h4>
+                                            <span>4 Lessons • 45m</span>
+                                        </div>
+                                        <div class="lesson-list">
+                                            <div class="lesson-item">
+                                                <i
+                                                    class="fas fa-video lesson-type"></i>
+                                                <span>Course Orientation</span>
+                                                <span
+                                                    class="lesson-duration">10m</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <div class="approval-actions">
+                                <button class="btn btn-reject">
+                                    <i class="fas fa-times"></i> Reject
+                                </button>
+                                <button class="btn btn-approve">
+                                    <i class="fas fa-check"></i> Approve
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <script>
+        const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+        const dashboardContainer = document.querySelector('.dashboard-container');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            dashboardContainer.classList.toggle('sidebar-active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1024 && 
+                !e.target.closest('.sidebar') && 
+                !e.target.closest('.mobile-menu-toggle')) {
+                dashboardContainer.classList.remove('sidebar-active');
+            }
+        });
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                document.querySelector('.nav-link.active').classList.remove('active');
+                this.classList.add('active');
+            });
+        });
+        function openCoursesModal() {
+            document.getElementById('coursesModal').style.display = 'flex';
+            setTimeout(() => {
+                document.querySelector('#coursesModal .modal-content').classList.add('active');
+            }, 10);
+        }
+
+        function closeCoursesModal() {
+            document.querySelector('#coursesModal .modal-content').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('coursesModal').style.display = 'none';
+            }, 300);
+        }
+
+        document.getElementById('coursesModal').addEventListener('click', function(e) {
+            if (e.target === this) closeCoursesModal();
+        });
+
+        const statusBadges = document.querySelectorAll('.status-badge');
+        statusBadges.forEach(badge => {
+            if (badge.classList.contains('active')) {
+                badge.style.background = 'rgba(16, 185, 129, 0.1)';
+                badge.style.color = '#10b981';
+            } else {
+                badge.style.background = 'rgba(239, 68, 68, 0.1)';
+                badge.style.color = '#ef4444';
+            }
+        });
+    let socialFieldCount = 1;
+
+    function toggleExpertise(element) {
+        element.classList.toggle('selected');
+    }
+
+    function addSocialField() {
+        const socialLinks = document.querySelector('.social-links');
+        const newField = document.createElement('div');
+        newField.className = 'social-input';
+        newField.innerHTML = `
+            <i class="fab fa-link"></i>
+            <input type="url" class="form-input" placeholder="Social media URL ${++socialFieldCount}">
+            <button type="button" class="delete-social-btn" onclick="removeSocialField(this)">
+                <i class="fas fa-times"></i>
+            </button>
+        `;
+        socialLinks.insertBefore(newField, document.querySelector('.add-social-btn'));
+    }
+
+    function removeSocialField(btn) {
+        btn.parentElement.remove();
+    }
+
+
+        function switchTab(tabName) {
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(tabName + 'Content').classList.add('active');
+            event.target.classList.add('active');
+        }
+    
+        function toggleModule(header) {
+            const module = header.parentElement;
+            const lessonList = module.querySelector('.lesson-list');
+            const icon = header.querySelector('i');
+            
+            header.classList.toggle('active');
+            lessonList.style.display = lessonList.style.display === 'block' ? 'none' : 'block';
+            icon.style.transform = lessonList.style.display === 'block' ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+    
+        function closeModal() {
+            document.querySelector('.modal-content').classList.remove('active');
+            setTimeout(() => {
+                document.getElementById('coursesModal').style.display = 'none';
+            }, 100);
+        }
+    </script>
+        </body>
+    </html>
