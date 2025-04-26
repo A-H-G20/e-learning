@@ -24,7 +24,7 @@ body {
 }
 
 .dashboard-container {
-  display: flex;
+  /* display: flex; */
   min-height: 100vh;
 }
 
@@ -630,7 +630,7 @@ td {
   max-width: 500px;
   position: relative;
   transform: scale(0.95);
-  opacity: 0;
+  /* opacity: 0; */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1165,6 +1165,8 @@ textarea.form-input {
 }
 
 .panel-header {
+  display: flex;
+  justify-content: space-between;
   border-bottom: 2px solid var(--border);
   padding-bottom: 1.5rem;
   margin-bottom: 2rem;
@@ -1259,5 +1261,512 @@ textarea.form-input {
 
   .danger-actions {
     flex-direction: column;
+  }
+}
+
+/* Instructor Dashboard Specific Styles */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--surface);
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+}
+
+.instructor-stats .stat-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.instructor-stats .stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.quick-actions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.action-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.action-card:hover {
+    transform: translateY(-3px);
+}
+
+.action-card i {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.action-card.create-course { background: linear-gradient(135deg, #EE6C4D 0%, #FF9B85 100%); }
+.action-card.manage-content { background: linear-gradient(135deg, #3D5A80 0%, #6B8CB0 100%); }
+.action-card.view-analytics { background: linear-gradient(135deg, #98C1D9 0%, #C0DFED 100%); }
+.action-card.earnings { background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%); }
+
+.content-section {
+    background: var(--surface);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.activity-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.activity-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    background: var(--background);
+    border-radius: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.activity-item:hover {
+    transform: translateX(5px);
+}
+
+.activity-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.activity-icon.course-update { background: rgba(238, 108, 77, 0.1); color: #EE6C4D; }
+.activity-icon.new-review { background: rgba(61, 90, 128, 0.1); color: #3D5A80; }
+
+.calendar-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* FullCalendar Overrides */
+.fc-header-toolbar {
+    padding: 1rem;
+    background: var(--background);
+    border-radius: 0.5rem;
+}
+
+.fc-event {
+    cursor: pointer;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+    
+    .quick-actions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .activity-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+.course-creation-panel {
+    background: var(--surface);
+    border-radius: 1.5rem;
+    padding: 2rem;
+    margin: 2rem;
+    box-shadow: var(--shadow);
+}
+
+.creation-header {
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.creation-steps {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+
+.step {
+    color: var(--text-light);
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.step.active {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.step.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--primary);
+}
+
+.classification-types {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.type-card {
+    padding: 2rem;
+    border: 2px solid var(--border);
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.type-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-3px);
+}
+
+.type-card[data-type="deaf"] i { color: #3D5A80; }
+.type-card[data-type="blind"] i { color: #EE6C4D; }
+.type-card[data-type="normal"] i { color: #98C1D9; }
+
+.accessibility-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.upload-types {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.upload-card {
+    padding: 1rem;
+    border: 2px dashed var(--border);
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.upload-card:hover {
+    border-color: var(--primary);
+    background: rgba(238, 108, 77, 0.05);
+}
+
+.drag-drop-area {
+    border: 2px dashed var(--border);
+    border-radius: 1rem;
+    padding: 3rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.drag-drop-area:hover {
+    border-color: var(--primary);
+    background: rgba(238, 108, 77, 0.05);
+}
+
+.module-builder {
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.module {
+    background: var(--background);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.module-header {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.lessons {
+    margin-left: 2rem;
+    border-left: 2px solid var(--border);
+    padding-left: 1rem;
+}
+
+.lesson {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.btn-add {
+    width: 100%;
+    border: 2px dashed var(--border);
+    background: transparent;
+    color: var(--text-light);
+}
+
+.btn-add:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.visibility-toggle {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+}
+
+.toggle-option {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.toggle-option.active {
+    background: var(--primary);
+    color: white;
+}
+
+.form-actions {
+    border-top: 2px solid var(--border);
+    padding-top: 2rem;
+    margin-top: 2rem;
+    text-align: right;
+}
+
+@media (max-width: 768px) {
+    .course-creation-panel {
+        margin: 1rem;
+        padding: 1rem;
+    }
+    
+    .classification-types {
+        grid-template-columns: 1fr;
+    }
+    
+    .lesson {
+        flex-direction: column;
+    }
+}
+.courses-management-panel {
+  background: var(--surface);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  margin: 2rem;
+  box-shadow: var(--shadow);
+  position: relative;
+}
+
+.management-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.courses-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.course-card {
+  background: var(--background);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+  border: 1px solid var(--border);
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+}
+
+.course-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.course-status {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
+}
+
+.course-status.published {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+
+.course-classification {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.course-classification.deaf i { color: #3D5A80; }
+.course-classification.blind i { color: #EE6C4D; }
+
+.course-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-course-panel {
+  position: fixed;
+  top: 0;
+  right: -600px;
+  width: 600px;
+  height: 100vh;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  transition: right 0.3s ease;
+  overflow-y: auto;
+}
+
+.edit-course-panel.active {
+  right: 0;
+}
+
+.version-control {
+  border-top: 1px solid var(--border);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+}
+
+.versions-list {
+  margin-top: 1rem;
+}
+
+.version-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: var(--background);
+  margin-bottom: 0.5rem;
+}
+
+.version-item.current {
+  border-left: 4px solid var(--primary);
+}
+
+.preview-toggle {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--surface);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: var(--shadow);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--border);
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background: var(--primary);
+}
+
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+
+@media (max-width: 768px) {
+  .edit-course-panel {
+      width: 100%;
+      right: -100%;
+  }
+  
+  .courses-list {
+      grid-template-columns: 1fr;
+  }
+  
+  .management-header {
+      flex-direction: column;
   }
 }

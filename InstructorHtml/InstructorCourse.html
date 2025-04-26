@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>IInstructor Dashboard</title>
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="stylesheet" href="../AdminHtml/Css/admin.css">
+        <style>
+    @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+    </style>
+    </head>
+    <body>
+        <button class="mobile-menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+      
+          <div class="dashboard-container">
+            <nav class="sidebar">
+              <div class="sidebar-header">
+                <div class="logo">E-Learn</div>
+              </div>
+      
+              <ul class="nav-menu">
+                <li class="nav-item">
+                  <a href="../InstructorHtml/InstructorDash.html" class="nav-link">
+                    <i class="fas fa-home"></i>
+                    Dashboard
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../InstructorHtml/InstructCourses.html" class="nav-link">
+                    <i class="fas fa-book-open"></i>
+                    Courses
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../InstructorHtml/InstructorStudent.html" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    Students
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../InstructorHtml/InstructorCourse.html" class="nav-link active">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    Add Course
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="../InstructorHtml/InstructorSettings.html" class="nav-link ">
+                    <i class="fas fa-cog"></i>
+                    Settings
+                  </a>
+                </li>
+              </ul>
+            </nav>
+<div class="main-content">
+    <div class="course-creation-panel">
+        <div class="creation-header">
+            <h2><i class="fas fa-plus-circle"></i> Create New Course</h2>
+        </div>
+
+        <div class="form-section">
+            <h3 class="section-title"><i class="fas fa-universal-access"></i> Course Classification</h3>
+            <div class="classification-types">
+                <div class="type-card" data-type="normal">
+                    <i class="fas fa-globe"></i>
+                    <h4>Standard Course</h4>
+                    <p>For general audiences without specific accessibility needs</p>
+                </div>
+                <div class="type-card" data-type="deaf">
+                    <i class="fas fa-deaf"></i>
+                    <h4>Deaf/HoH Focus</h4>
+                    <p>Optimized for hearing impaired students</p>
+                </div>
+                <div class="type-card" data-type="blind">
+                    <i class="fas fa-blind"></i>
+                    <h4>Blind/Low Vision</h4>
+                    <p>Designed for visually impaired students</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="course-creation-form">
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-info-circle"></i> Course Information</h3>
+                <div class="form-row">
+                    <label class="form-label">Course Title</label>
+                    <input type="text" class="form-input" placeholder="Enter course title">
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Course Description</label>
+                    <textarea class="form-input" rows="4" placeholder="Describe your course"></textarea>
+                </div>
+                <div class="form-row">
+                    <label class="form-label">Course Category</label>
+                    <input type="text" class="form-input" placeholder="Enter course Category">
+                </div>
+            </div>
+
+            <div class="form-section accessibility-features">
+                <h3 class="section-title"><i class="fas fa-wheelchair"></i> Accessibility Settings</h3>
+                
+                <div class="accessibility-options">
+                    <div class="option-group deaf-options">
+                        <div class="form-row">
+                            <label class="form-label">
+                                <input type="checkbox"> Include Sign Language Interpretation
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">
+                                <input type="checkbox"> Add Closed Captions to All Videos
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option-group blind-options">
+                        <div class="form-row">
+                            <label class="form-label">
+                                <input type="checkbox"> Audio Descriptions for Visual Content
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">
+                                <input type="checkbox"> Screen Reader Optimized Content
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="option-group general-options">
+                        <div class="form-row">
+                            <label class="form-label">
+                                <input type="checkbox"> Enable Keyboard Navigation
+                            </label>
+                        </div>
+                        <div class="form-row">
+                            <label class="form-label">
+                                <input type="checkbox"> High Contrast Mode
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-file-upload"></i> Course Content</h3>
+                <div class="content-upload">
+                    <div class="upload-types">
+                        <div class="upload-card" data-type="video">
+                            <i class="fas fa-video"></i>
+                            <span>Video Lectures</span>
+                        </div>
+                        <div class="upload-card" data-type="audio">
+                            <i class="fas fa-file-audio"></i>
+                            <span>Audio Files</span>
+                        </div>
+                        <div class="upload-card" data-type="document">
+                            <i class="fas fa-file-alt"></i>
+                            <span>Documents</span>
+                        </div>
+                    </div>
+                    
+                    <div class="drag-drop-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <p>Drag and drop files or <span>browse</span></p>
+                        <input type="file" multiple hidden>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-sitemap"></i> Course Structure</h3>
+                <div class="module-builder">
+                    <div class="module">
+                        <div class="module-header">
+                            <input type="text" class="form-input" placeholder="Module Title">
+                            <button type="button" class="btn btn-icon">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                        <div class="lessons">
+                            <div class="lesson">
+                                <input type="text" class="form-input" placeholder="Lesson Title">
+                                <select class="form-input">
+                                    <option>Video Lecture</option>
+                                    <option>Reading Material</option>
+                                    <option>Quiz</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-add">
+                            <i class="fas fa-plus"></i> Add Lesson
+                        </button>
+                    </div>
+                    <button type="button" class="btn btn-add">
+                        <i class="fas fa-plus"></i> Add Module
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3 class="section-title"><i class="fas fa-rocket"></i> Publishing Options</h3>
+                <div class="publishing-options">
+                    <div class="form-row">
+                        <label class="form-label">Course Visibility</label>
+                        <div class="visibility-toggle">
+                            <span class="toggle-option active">Draft</span>
+                            <span class="toggle-option">Published</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Schedule Publication</label>
+                        <input type="datetime-local" class="form-input">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn btn-secondary">
+                    Save Draft
+                </button>
+                <button type="submit" class="btn btn-primary">
+                    Publish Course
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+<script>
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const dashboardContainer = document.querySelector('.dashboard-container');
+
+    mobileMenuToggle.addEventListener('click', () => {
+        dashboardContainer.classList.toggle('sidebar-active');
+    });
+
+    document.addEventListener('click', (e) => {
+        if (window.innerWidth <= 1024 && 
+            !e.target.closest('.sidebar') && 
+            !e.target.closest('.mobile-menu-toggle')) {
+            dashboardContainer.classList.remove('sidebar-active');
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            document.querySelector('.nav-link.active').classList.remove('active');
+            this.classList.add('active');
+        });
+    });
+    document.addEventListener('DOMContentLoaded', () => {
+        // Course Type Selection
+        document.querySelectorAll('.type-card').forEach(card => {
+            card.addEventListener('click', function() {
+                document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
+                this.classList.add('selected');
+                const courseType = this.dataset.type;
+                updateAccessibilityOptions(courseType);
+            });
+        });
+    
+        function updateAccessibilityOptions(type) {
+            document.querySelectorAll('.option-group').forEach(group => {
+                group.style.display = 'none';
+            });
+            
+            document.querySelector(`.${type}-options`).style.display = 'block';
+            document.querySelector('.general-options').style.display = 'block';
+        }
+    
+        // Add Module/Lesson Functionality
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const newElement = document.createElement('div');
+                newElement.className = 'lesson';
+                newElement.innerHTML = `
+                    <input type="text" class="form-input" placeholder="Lesson Title">
+                    <select class="form-input">
+                        <option>Video Lecture</option>
+                        <option>Reading Material</option>
+                        <option>Quiz</option>
+                    </select>
+                `;
+                this.parentElement.insertBefore(newElement, this);
+            });
+        });
+    
+        document.querySelector('.drag-drop-area').addEventListener('click', () => {
+            document.querySelector('input[type="file"]').click();
+        });
+    });
+    </script>
+</body>
+</html>

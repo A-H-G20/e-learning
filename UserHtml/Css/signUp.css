@@ -183,3 +183,60 @@ button {
     }
   }
   
+  /* Accessibility Options Styling */
+.accessibility-options {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.accessibility-option {
+  flex: 1;
+  position: relative;
+  cursor: pointer;
+}
+
+.option-content {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border: 2px solid var(--primary-bluelight);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.accessibility-option input:checked + .option-content {
+  border-color: var(--primary-bluedark);
+  background-color: var(--primary-bluelight);
+  color: white;
+}
+
+.accessibility-option input:checked + .option-content i {
+  color: white;
+}
+
+.accessibility-option:hover .option-content {
+  border-color: var(--primary-bluedark);
+}
+
+.accessibility-option i {
+  font-size: 1.5rem;
+  color: var(--primary-bluelight);
+}
+
+.accessibility-option span {
+  font-size: 0.9rem;
+  text-align: center;
+  color: var(--primary-bluedark);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .accessibility-options {
+      flex-direction: column;
+  }
+}
