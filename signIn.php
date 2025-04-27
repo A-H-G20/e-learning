@@ -11,7 +11,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <link rel="stylesheet" href="../UserHtml/Css/signIn.css" />
+    <link rel="stylesheet" href="Css/signIn.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <style>
       @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
@@ -102,3 +102,53 @@
 </script>
   </body>
 </html>
+
+<?php
+session_start(); // Start the session to store user data after login
+require_once 'config.php'; // Assuming you have a config.php file for database connection
+
+// Handle login when form is submitted
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    $username = $_POST['username']; // Username (email or phone number)
+    $password = $_POST['password']; // Password entered by the user
+
+    // Validate input
+    if (empty($username) || empty($password)) {
+        echo "Please enter both username and password.";
+        exit;
+    }
+
+    // Check if the username is email or phone number
+    $query = "SELECT id, email, phone_number, password, role FROM users WHERE (email = ? OR phone_number= ?) AND verified = 1";
+    $stmt = $conn->prepare($query);
+    $stmt->bind_param("ss", $username, $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        // Verify password
+        if (password_verify($password, $user['password'])) {
+            // Store user data in session
+            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['role'] = $user['role'];
+
+            // Redirect based on user role
+            if ($user['role'] == 'admin') {
+                header('Location: admin/index.php');
+            } elseif ($user['role'] == 'user') {
+                header('Location: index.php');
+            } elseif ($user['role'] == 'instructor') {
+                header('Location: instructor/index.php');
+            } else {
+                echo "Invalid role.";
+            }
+            exit; // Stop further execution
+        } else {
+            echo "Invalid password.";
+        }
+    } else {
+        echo "No user found with that email or phone number.";
+    }
+}
+?>
