@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Redirect based on user role
             if ($user['role'] == 'admin') {
                 header('Location: admin/index.php');
-            } elseif ($user['role'] == 'user') {
+            } elseif ($user['role'] == 'user' || $user['role'] == 'deaf' || $user['role'] == 'blind') {
                 header('Location: index.php');
             } elseif ($user['role'] == 'instructor') {
                 header('Location: instructor/index.php');
