@@ -20,13 +20,13 @@
             <div class="hero-text">
                 <h1>Education Without Barriers</h1>
                 <p>An inclusive learning platform designed for normal, blind, and deaf students with universal accessibility features.</p>
-                <a href="#" class="cta-button">Get Started</a>
+               
             </div>
-            <div class="hero-image">
+         <!--   <div class="hero-image">
                 <img src="" 
                      alt="Diverse group of students learning together" 
                      style="width: 100%; height: auto;">
-            </div>
+            </div>-->
         </div>
     </section>
 
@@ -42,10 +42,7 @@
                 </div>
                 <h3>Normal Course</h3>
                 <p>Multi-format content delivery with using books </p>
-                <button class="details-button" aria-label="View details about Universal Access" onclick="window.location.href='normal_course.php'">
-                    View Details
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+                
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -53,10 +50,7 @@
                 </div>
                 <h3>Deaf Course</h3>
                 <p>Integrated videos for easier learning</p>
-                <button class="details-button" aria-label="View details about Sign Language Support" onclick="window.location.href='deaf_course.php'">
-                    View Details
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+               
             </div>
             <div class="feature-card">
                 <div class="feature-icon">
@@ -64,10 +58,7 @@
                 </div>
                 <h3>Blind Course</h3>
                 <p>Integrated audio materials for blind students</p>
-                <button class="details-button" aria-label="View details about Tactile Learning" onclick="window.location.href='blind_course.php'"> >
-                    View Details
-                    <i class="fas fa-chevron-right"></i>
-                </button>
+               
             </div>
         </div>
     </section>
