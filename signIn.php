@@ -64,13 +64,7 @@
           </div>
 
           <div class="form-options">
-            <div class="remember-me">
-              <label class="container">  
-                <input type="checkbox" class="item-checkbox" id="select-all">
-                <div class="checkmark"></div>
-              </label>
-              <p style="color: #f7ae48;">Remember Me</p>
-            </div>
+           
             <a href="#" class="forgot-password">Forgot password?</a>
           </div>
           <button >
