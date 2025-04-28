@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,16 +22,25 @@
 
       <div class="nav__links">
         <a href="index.php" class="nav__link">Home</a>
-        <a href="deaf_course.php" class="nav__link">Deaf Courses</a>
+        
+        
+<?php if (isset($_SESSION['user_id'])): ?>
+    <a href="deaf_course.php" class="nav__link">Deaf Courses</a>
+<?php endif; ?>
+<?php if (isset($_SESSION['user_id'])): ?>
         <a href="blind_course" class="nav__link">Blind Courses</a>
+<?php endif; ?>
+<?php if (isset($_SESSION['user_id'])): ?>
         <a href="normal_course.php" class="nav__link">Normal Courses</a>
+<?php endif; ?>
+        <a href="aboutUs.php" class="nav__link">About us</a>
         <div class="nav__mobile-actions">
         <?php if (isset($_SESSION['user_id'])): ?>
     <a href="account_details.php" class="nav__icon-link" aria-label="User Account">
         <i class="fas fa-user"></i>
     </a>
 <?php endif; ?>
-          <?php session_start(); ?>
+         
 
 <?php if (isset($_SESSION['user_id'])): ?>
     <a href="logout.php" class="nav__button">Logout</a>
