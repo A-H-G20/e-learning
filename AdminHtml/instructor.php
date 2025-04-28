@@ -57,9 +57,10 @@ $instructors = $fetch_instructors_stmt->fetchAll(PDO::FETCH_ASSOC);
     <ul class="nav-menu">
         <li class="nav-item"><a href="index.php" class="nav-link"><i class="fas fa-home"></i> Dashboard</a></li>
         <li class="nav-item"><a href="course.php" class="nav-link"><i class="fas fa-book-open"></i> Courses</a></li>
-        <li class="nav-item"><a href="Instructor_Student.php" class="nav-link"><i class="fas fa-users"></i> Students</a></li>
-        <li class="nav-item"><a href="Instructor_Management.php" class="nav-link active"><i class="fas fa-chalkboard-teacher"></i> Instructors</a></li>
-        <li class="nav-item"><a href="Instructor_Settings.php" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+        <li class="nav-item"><a href="admin_User.php" class="nav-link"><i class="fas fa-users"></i> Students</a></li>
+        <li class="nav-item"><a href="admin_User.php" class="nav-link"><i class="fas fa-users"></i> Admin</a></li>
+        <li class="nav-item"><a href="admin.php" class="nav-link active"><i class="fas fa-chalkboard-teacher"></i> Instructors</a></li>
+        <li class="nav-item"><a href="admin_settings.php" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
         <li class="nav-item"><a href="../logout.php" class="nav-link"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
     </ul>
 </nav>
