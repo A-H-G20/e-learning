@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['email'])) {
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
-            $mail->setFrom('your_email@gmail.com', 'Lebanon Tours Password Recovery');
+            $mail->setFrom('your_email@gmail.com', 'E-Learn Platform');
             $mail->addAddress($email, $user['name']);
             $mail->isHTML(true);
             $mail->Subject = 'Password Reset Code';
