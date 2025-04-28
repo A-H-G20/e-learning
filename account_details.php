@@ -15,25 +15,42 @@
     <div class="dashboard-container">
     <?php
 session_start();
-include 'config.php'; // Your database connection file
 
-$userId = $_SESSION['user_id'] ?? null;
+// Database connection
+$host = 'localhost';
+$dbname = 'e-learning';
+$username = 'root';
+$password = '';
 
-if ($userId) {
-    $stmt = $conn->prepare("SELECT name, email, image, role, gender, verified_at FROM users WHERE id = ?");
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-
-    // Format the verified_at date (without time)
-    $joinedDate = '';
-    if (!empty($user['verified_at'])) {
-        $date = new DateTime($user['verified_at']);
-        $joinedDate = $date->format('M Y'); // Example: "Apr 2025"
-    }
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
+
+// Check if user logged in
+if (!isset($_SESSION['user_id'])) {
+    header('Location: signIn.php');
+    exit;
+}
+
+// Fetch current user
+$user_id = $_SESSION['user_id'];
+
+$stmt = $pdo->prepare("SELECT * FROM users WHERE id = ?");
+$stmt->execute([$user_id]);
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Check if user exists
+if (!$user) {
+    die("User not found.");
+}
+
+// Prepare joined date nicely
+$joinedDate = date('F Y', strtotime($user['created_at'] ?? $user['date_created'] ?? 'now'));
 ?>
+
 
 <header class="dashboard-header">
     <div class="user-profile">
@@ -47,20 +64,7 @@ if ($userId) {
         </div>
     </div>
 </header>
-<?php
 
-
-$userId = $_SESSION['user_id'] ?? null;
-$user = [];
-
-if ($userId) {
-    $stmt = $conn->prepare("SELECT name, email, phone_number, image FROM users WHERE id = ?");
-    $stmt->bind_param("i", $userId);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
-}
-?>
 
 
 <section class="settings-section">
@@ -170,7 +174,7 @@ function resetForm() {
 
 
 <?php
-
+include 'config.php'; // Include your database connection file
 $userId = $_SESSION['user_id'] ?? null;
 
 if ($userId) {
