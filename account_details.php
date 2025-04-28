@@ -11,6 +11,7 @@
         </style>
 </head>
 <body>
+<?php  include 'navBar.php'; // Include the nav bar file?>
     <div class="dashboard-container">
     <?php
 session_start();
@@ -268,7 +269,7 @@ if ($userId) {
 </section>
 
     </div>
-
+    <?php  include 'footer.php'; // Include the footer file?>
     <script>
         const progressCircle = document.querySelector('.progress-circle circle:last-child');
         const radius = progressCircle.r.baseVal.value;
