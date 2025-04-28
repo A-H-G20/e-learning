@@ -60,50 +60,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="dashboard-container">
   <nav class="sidebar">
-              <div class="sidebar-header">
-                <div class="logo">E-Learn</div>
-              </div>
-      
-              <ul class="nav-menu">
-                <li class="nav-item">
-                  <a href="index.php" class="nav-link">
-                    <i class="fas fa-home"></i>
-                    Dashboard
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="course.php" class="nav-link">
-                    <i class="fas fa-book-open"></i>
-                    Courses
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="Instructor_Student.php" class="nav-link">
-                    <i class="fas fa-users"></i>
-                    Students
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="add_course.php" class="nav-link ">
-                    <i class="fas fa-chalkboard-teacher"></i>
-                    Add Course
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a href="Instructor_Settings.php" class="nav-link active ">
-                    <i class="fas fa-cog"></i>
-                    Settings
-                  </a>
-                </li>
-                <li class="nav-item">
-                    <a href="../logout.php" class="nav-link">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </a>
-                </li>
-              </ul>
-            </nav>
+    <div class="sidebar-header">
+        <div class="logo">E-Learn</div>
+    </div>
+    <ul class="nav-menu">
+    <li class="nav-item">
+    <a href="index.php" class="nav-link">
+        <i class="fas fa-home"></i> Dashboard
+    </a>
+</li>
 
+<li class="nav-item">
+    <a href="course.php" class="nav-link">
+        <i class="fas fa-book-open"></i> Courses
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="admin_User.php" class="nav-link">
+        <i class="fas fa-user-graduate"></i> Students
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="admin.php" class="nav-link">
+        <i class="fas fa-user-shield"></i> Admins
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="instructor.php" class="nav-link ">
+        <i class="fas fa-chalkboard-teacher"></i> Instructors
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="enrollment.php" class="nav-link">
+        <i class="fas fa-book-reader"></i> Course Enrollment
+    </a>
+</li>
+
+
+<li class="nav-item">
+    <a href="admin_settings.php" class="nav-link active">
+        <i class="fas fa-cogs"></i> Settings
+    </a>
+</li>
+
+<li class="nav-item">
+    <a href="../logout.php" class="nav-link">
+        <i class="fas fa-sign-out-alt"></i> Logout
+    </a>
+</li>
+
+    </ul>
+</nav>
     <main class="main-content">
       <div class="settings-panel">
         <div class="panel-header">
