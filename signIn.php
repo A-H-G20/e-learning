@@ -65,7 +65,7 @@
 
           <div class="form-options">
            
-            <a href="#" class="forgot-password">Forgot password?</a>
+            <a href="forget.php" class="forgot-password">Forgot password?</a>
           </div>
           <button >
             Sign In
