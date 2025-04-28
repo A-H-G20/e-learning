@@ -20,23 +20,41 @@
       </div>
 
       <div class="nav__links">
-        <a href="/" class="nav__link">Home</a>
-        <a href="/" class="nav__link">Deaf Courses</a>
-        <a href="/" class="nav__link">Blind Courses</a>
-        <a href="/" class="nav__link">Normal Courses</a>
+        <a href="index.php" class="nav__link">Home</a>
+        <a href="deaf_course.php" class="nav__link">Deaf Courses</a>
+        <a href="blind_course" class="nav__link">Blind Courses</a>
+        <a href="normal_course.php" class="nav__link">Normal Courses</a>
         <div class="nav__mobile-actions">
-          <a href="/account" class="nav__link nav__icon-link">
-            <i class="fas fa-user"></i>
-          </a>
-          <a href="/login" class="nav__button">Sign In</a>
+        <?php if (isset($_SESSION['user_id'])): ?>
+    <a href="account_details.php" class="nav__icon-link" aria-label="User Account">
+        <i class="fas fa-user"></i>
+    </a>
+<?php endif; ?>
+          <?php session_start(); ?>
+
+<?php if (isset($_SESSION['user_id'])): ?>
+    <a href="logout.php" class="nav__button">Logout</a>
+<?php else: ?>
+    <a href="signIn.php" class="nav__button">Sign In</a>
+<?php endif; ?>
+
         </div>
       </div>
 
       <div class="nav__actions">
-        <a href="/account" class="nav__icon-link" aria-label="User Account">
-          <i class="fas fa-user"></i>
-        </a>
-        <a href="/login" class="nav__button">Sign up</a>
+      <?php if (isset($_SESSION['user_id'])): ?>
+    <a href="account_details.php" class="nav__icon-link" aria-label="User Account">
+        <i class="fas fa-user"></i>
+    </a>
+<?php endif; ?>
+        
+
+<?php if (isset($_SESSION['user_id'])): ?>
+    <a href="logout.php" class="nav__button">Logout</a>
+<?php else: ?>
+    <a href="signIn.php" class="nav__button">Sign In</a>
+<?php endif; ?>
+
         <button class="nav__hamburger" aria-label="Toggle menu">☰</button>
       </div>
     </nav>
