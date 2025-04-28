@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="./Css/aboutUs.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+        </style>
+ 
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-content">
+            <h1 style="font-size: 3.5em; margin-bottom: 20px;">About Us</h1>
+            <p style="font-size: 1.2em; letter-spacing: 2px;">Transforming Education Through Technology</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2 class="section-title "><span class="gradient-text">What do we do?</span></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>At E-Learn, we believe in making quality education accessible, engaging, and personalized for every learner. Our platform combines cutting-edge technology with pedagogical expertise to create transformative learning experiences.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services">
+        <h2 class="section-title"><span class="gradient-text">Expertise</span> </h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-universal-access fa-2x"></i>
+                <h3>Accessible Learning</h3>
+                <p>Our platform is designed with accessibility at its core, supporting learners with diverse needs through adaptive technologies.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                <h3>Expert Instructors</h3>
+                <p>Learn from industry professionals and academic experts passionate about sharing their knowledge.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-rocket fa-2x" ></i>
+            
+                <h3>Innovative Platform</h3>
+                <p>Interactive learning tools, AI-driven recommendations, and real-time progress tracking.</p>
+            </div>
+        
+        </div>
+    </section>
+    <section class="offerings-section">
+        <div class="section-header">
+            <h2>What We Offer</h2>
+            <p class="section-subtitle">Empowering learners through comprehensive educational solutions</p>
+        </div>
+    
+        <div class="offerings-grid">
+            <div class="offering-card">
+                <div class="offering-icon">
+                    <i class="fas fa-book-open"></i>
+                </div>
+                <h3>Diverse Course Catalog</h3>
+                <ul class="offering-list">
+                    <li>1000+ courses across 20+ categories</li>
+                    <li>Beginner to advanced levels</li>
+                    <li>Self-paced & instructor-led options</li>
+                </ul>
+            </div>
+    
+    
+            <div class="offering-card">
+                <div class="offering-icon">
+                    <i class="fas fa-universal-access"></i>
+                </div>
+                <h3>Inclusive Learning Environment</h3>
+                <ul class="offering-list">
+                    <li>ADA-compliant platform</li>
+                    <li>Multi-modal content delivery</li>
+                    <li>Accessibility-first design</li>
+                </ul>
+            </div>
+
+    
+            <div class="offering-card">
+                <div class="offering-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile Learning</h3>
+                <ul class="offering-list">
+                    <li>iOS/Android apps</li>
+                    <li>free content access</li>
+                    <li>Sync across devices</li>
+                </ul>
+            </div>
+ 
+        </div>
+    </section>
+   
+    <script>
+
+       
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    
+                  
+                    if (entry.target.querySelector('.service-card')) {
+                        const cards = entry.target.querySelectorAll('.service-card');
+                        cards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.style.transitionDelay = `${index * 0.2}s`;
+                            }, 50);
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+     
+             
+             const photoObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const photos = entry.target.querySelectorAll('.triangle-photo');
+                        photos.forEach((photo, index) => {
+                            setTimeout(() => {
+                                photo.style.transition = `all 0.6s ease ${index * 0.2}s`;
+                                photo.style.opacity = 1;
+                                photo.style.transform = 'translateY(0)';
+                            }, 100);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+    
+            document.querySelectorAll('.photo-story').forEach(section => {
+                photoObserver.observe(section);
+            });
+    </script>
+</body>
+</html>

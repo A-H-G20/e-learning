@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./Css/contactUs.css" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Righteous&family=Secular+One&display=swap');
+        </style>
+  </head>
+  <body>
+
+    <section class="contact-hero">
+      <div class="contact-hero-content">
+        <h1 style="font-size: 3.5em; margin-bottom: 20px">Contact Us</h1>
+      
+      </div>
+    </section>
+
+    <div class="contact-methods">
+
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+        <h3>Phone</h3>
+       
+        <p style="margin-top: 15px; font-size: 1.2em; color: var(--primary)">
+  
+          <a
+            href="https://wa.me/"
+            target="_blank"
+            class="card__links"
+            >+961 00 000 000</a
+          >
+ 
+        </p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+        <h3>Place</h3>
+        
+        <p style="margin-top: 15px; font-size: 1.2em; color: var(--primary)">
+          <a
+            href=""
+            class="map-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Open in Google Maps"
+            >Across LIU University, Marj, West Bekaa, Lebanon</a>
+         
+        </p>
+      </div>
+      <div class="contact-card">
+        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+        <h3>Email</h3>
+       
+        <p style="margin-top: 15px; font-size: 1.2em; color: var(--primary)">
+          <a
+
+            href="https://mail.google.com/mail/"
+            title="Send us an email"
+            target="_blank"
+            class="card__links"
+            >support@elearn.com <br></a
+          >
+        </p>
+      </div>
+    </div>
+
+    <section class="form-section">
+      <div class="form-photo-container">
+        <div class="photo-collage">
+            <div class="form-photo photo-1">
+              <img
+                src="./uploads/9134177.jpg"
+                alt="Warehouse"
+              />
+            </div>
+            <div class="form-photo photo-2">
+              <img
+                src="./uploads/9571056.jpg"
+                alt="Cargo Ship"
+              />
+            </div>
+            <div class="form-photo photo-3">
+              <img
+                src="./uploads/Wavy_Lst-06_Single-06.jpg"
+                alt="Delivery"
+              />
+            </div>
+          </div>
+        <div class="form-container">
+          <h2
+            style="
+              text-align: center;
+              margin-bottom: 40px;
+              font-size: 2.2em;
+              position: relative;
+            "
+          >
+            <span class="gradient-text"> Get in Touch</span>
+            <div
+              style="
+                position: absolute;
+                bottom: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: var(--secondary);
+              "
+            ></div>
+          </h2>
+          <form>
+            <div class="form-group">
+              <input type="text" class="form-input" placeholder=" " />
+              <label class="floating-label">Full Name</label>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-input" placeholder=" " />
+              <label class="floating-label">Email Address</label>
+            </div>
+            <div class="form-group">
+              <textarea
+                class="form-input"
+                rows="5"
+                placeholder=" "
+                style="resize: none"
+              ></textarea>
+              <label class="floating-label">Your Message</label>
+            </div>
+            <button
+              type="submit"
+              style="
+                width: 100%;
+                padding: 16px;
+                background: var(--primary);
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.1em;
+                cursor: pointer;
+                transition: all 0.3s ease;
+              "
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+
+   
+      </div>
+    </section>
+
+  
+    <script>
+      window.onload = function () {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      };
+
+      if (history.scrollRestoration) {
+        history.scrollRestoration = "manual";
+      }
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      document
+        .querySelectorAll(".contact-card")
+        .forEach((el) => observer.observe(el));
+
+      // FAQ observation
+      const faqObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.2 }
+      );
+
+      document
+        .querySelectorAll(".faq-item")
+        .forEach((item) => faqObserver.observe(item));
+
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", () => {
+          const faqItem = question.closest(".faq-item");
+          const answer = question.nextElementSibling;
+          faqItem.classList.toggle("active");
+          answer.style.maxHeight = faqItem.classList.contains("active")
+            ? answer.scrollHeight + "px"
+            : null;
+        });
+      });
+
+      const hamburger = document.querySelector(".nav__hamburger");
+      const navLinks = document.querySelector(".nav__links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("nav__links--active");
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".nav")) {
+          navLinks.classList.remove("nav__links--active");
+        }
+      });
+
+      document
+        .querySelector("form")
+        .addEventListener("submit", (e) => e.preventDefault());
+    </script>
+  </body>
+</html>
