@@ -27,6 +27,7 @@ if ($result && $result->num_rows > 0) {
         </style>
 </head>
 <body>
+<?php  include 'navBar.php'; // Include the nav bar file?>
     <header class="general-courses-header" role="banner">
         <div class="header-content">
             <div class="education-icon" aria-hidden="true">
@@ -130,5 +131,6 @@ if ($result && $result->num_rows > 0) {
     <script>
 
     </script>
+  <?php  include 'footer.php'; // Include the footer file?>
 </body>
 </html>

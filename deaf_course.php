@@ -51,7 +51,7 @@ if ($result && $result->num_rows > 0) {
   </style>
 </head>
 <body>
-
+<?php  include 'navBar.php'; // Include the nav bar file?>
 <header class="deaf-courses-header" role="banner">
   <div class="header-content">
     <div class="asl-icon" aria-hidden="true">
@@ -158,7 +158,7 @@ if ($result && $result->num_rows > 0) {
     </div>
   </div>
 </section>
-
+<?php  include 'footer.php'; // Include the footer file?>
 <script>
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', function() {

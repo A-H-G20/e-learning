@@ -55,7 +55,7 @@ if (!empty($course['uploaded_files'])) {
   </style>
 </head>
 <body>
-
+<?php  include 'navBar.php'; // Include the nav bar file?>
 <div class="course-container">
 
     <?php if (!empty($firstVideo)): ?>
@@ -111,6 +111,6 @@ if (!empty($course['uploaded_files'])) {
     </div>
 
 </div>
-
+<?php  include 'footer.php'; // Include the footer file?>
 </body>
 </html>

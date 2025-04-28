@@ -14,7 +14,7 @@
 </head>
 <body>
 
-
+<?php  include 'navBar.php'; // Include the nav bar file?>
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
@@ -156,26 +156,8 @@
             </button>
         </div>
     </section>
-    <div class="language-switcher">
-        <button class="lang-button" id="langButton" aria-label="Change language">
-            <i class="fas fa-language"></i>
-        </button>
-        <div class="lang-dropdown" id="langDropdown">
-            <button class="lang-option" data-lang="en">
-                English <span class="checkmark">✓</span>
-            </button>
-            <button class="lang-option" data-lang="es">
-                Español
-            </button>
-            <button class="lang-option" data-lang="fr">
-                Français
-            </button>
-            <button class="lang-option" data-lang="ar">
-                العربية
-            </button>
-        </div>
-    </div>
-
+   
+    <?php  include 'footer.php'; // Include the footer file?>
 
     <script>
     const langButton = document.getElementById('langButton');

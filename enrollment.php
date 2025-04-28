@@ -253,6 +253,6 @@ if (isset($_POST['enroll_now'])) {
 </main>
 
 <script></script>
-
+<?php  include 'footer.php'; // Include the footer file?>
 </body>
 </html>
