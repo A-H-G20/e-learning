@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $filesJson // <=== Insert uploaded files (even if mp3, wav) into DB
     ]);
 
-    header('Location: ../Instructor/course.php');
+    header('Location: course.php');
     exit;
 }
 ?>

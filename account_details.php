@@ -14,7 +14,7 @@
 <?php  include 'navBar.php'; // Include the nav bar file?>
     <div class="dashboard-container">
     <?php
-session_start();
+
 
 // Database connection
 $host = 'localhost';

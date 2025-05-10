@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include 'config.php'; // Database connection
 
 // Fetch all blind courses

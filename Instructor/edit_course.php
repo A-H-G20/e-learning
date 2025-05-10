@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt = $pdo->prepare($sql);
     $stmt->execute($params);
 
-    header('Location: manage_courses.php');
+    header('Location: course.php');
     exit;
 }
 
