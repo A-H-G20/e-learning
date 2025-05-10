@@ -105,9 +105,7 @@ $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <option>Archived</option>
                         </select>
                     </div>
-                    <div>
-  <a href="add_course.php" class="btn-add-course">Add</a>
-</div>
+            
 
                 </div>
             </div>
@@ -130,9 +128,13 @@ $courses = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                         <div class="course-actions">
              
-                            <button class="btn btn-icon delete-btn">
-                                <i class="fas fa-trash"></i>
-                            </button>
+                          <form method="POST" action="delete_course.php" onsubmit="return confirm('Are you sure you want to delete this course?');">
+    <input type="hidden" name="course_id" value="<?= $course['id'] ?>">
+    <button type="submit" class="btn btn-icon delete-btn">
+        <i class="fas fa-trash"></i>
+    </button>
+</form>
+
                         </div>
                     </div>
 
