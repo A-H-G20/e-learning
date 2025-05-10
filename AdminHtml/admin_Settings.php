@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
 
     // Redirect or display a success message
-    header('Location: Instructor_Settings.php?status=success');
+    header('Location: admin_Settings.php?status=success');
 }
 ?>
 
