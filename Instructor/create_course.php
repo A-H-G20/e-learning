@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+// Make sure the user is logged in
+if (!isset($_SESSION['user_id'])) {
+    die("Access denied. Please login first.");
+}
+
 // Database connection
 $host = 'localhost';
 $dbname = 'e-learning';
@@ -16,6 +21,8 @@ try {
 
 // Only if POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user_id = $_SESSION['user_id']; // Get user_id from session
+
     // Course fields
     $title = trim($_POST['title'] ?? '');
     $description = trim($_POST['description'] ?? '');
@@ -50,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $destination = $uploadDir . $newFileName;
 
                 if (move_uploaded_file($tmpName, $destination)) {
-                    $uploaded_files[] = $newFileName; // <=== Add uploaded file to array
+                    $uploaded_files[] = $newFileName;
                 }
             }
         }
@@ -61,13 +68,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Insert course into database
     $stmt = $pdo->prepare("
         INSERT INTO courses
-        (title, description, category, classification, status, scheduled_publish_time,
+        (user_id, title, description, category, classification, status, scheduled_publish_time,
          include_sign_language, add_captions, audio_descriptions, screen_reader,
          keyboard_navigation, high_contrast, uploaded_files, created_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
     ");
 
     $stmt->execute([
+        $user_id,
         $title,
         $description,
         $category,
@@ -80,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $screen_reader,
         $keyboard_navigation,
         $high_contrast,
-        $filesJson // <=== Insert uploaded files (even if mp3, wav) into DB
+        $filesJson
     ]);
 
     header('Location: course.php');
