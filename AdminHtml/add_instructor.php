@@ -21,8 +21,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $phone = htmlspecialchars($_POST['phone_number']);
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
-    $stmt = $pdo->prepare("INSERT INTO users (name, email, role, phone_number, password) VALUES (?, ?, 'instructor', ?, ?)");
-    $stmt->execute([$name, $email, $phone, $password]);
+    $sql = "INSERT INTO users (name, email, role, phone_number, password, verified, verified_at) 
+            VALUES (:name, :email, 'instructor', :phone, :password, 1, NOW())";
+
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([
+        ':name' => $name,
+        ':email' => $email,
+        ':phone' => $phone,
+        ':password' => $password
+    ]);
 
     header('Location: instructor.php');
     exit;
